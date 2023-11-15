@@ -16,6 +16,14 @@ export class MiListaPageComponent implements OnInit {
   constructor(private tareaServiceCons: TareaService) {}
 
   ngOnInit(): void {
-      this.tareas = this.tareaService.getTareas();
+      this.obtenerTareas();
+  }
+
+  obtenerTareas() {
+    this.tareas = this.tareaService.getTareas();
+  }
+
+  catchOnStatusChange() {
+    this.obtenerTareas()
   }
 }

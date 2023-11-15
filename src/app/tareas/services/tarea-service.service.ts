@@ -15,7 +15,16 @@ export class TareaService {
     }
   }
 
+  private saveToLocalStorage() {
+    localStorage.setItem(this.tareasKey, JSON.stringify(this.tareas));
+  }
+
   getTareas(): Tarea[] {
     return this.tareas;
+  }
+
+  updateTarea(index: number, tarea: Tarea) {
+    this.tareas[index] = tarea;
+    this.saveToLocalStorage();
   }
 }
