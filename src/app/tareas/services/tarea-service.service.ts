@@ -27,4 +27,9 @@ export class TareaService {
     this.tareas[index] = tarea;
     this.saveToLocalStorage();
   }
+
+  agregarTarea(tarea: Tarea) {
+    this.tareas.push(tarea);
+    this.saveToLocalStorage();
+  }
 }
