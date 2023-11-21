@@ -22,6 +22,8 @@ export class TareaFormularioComponent {
     descripcion: ['', [Validators.required, Validators.minLength(5)]]
   });
 
+  
+
   isFieldValid(field: string): boolean | null {
     return this.tareaForm.controls[field].errors && this.tareaForm.controls[field]?.touched
   }
