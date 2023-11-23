@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SmallCountry } from '../../models/paises.models';
 
 @Component({
-  selector: 'app-pais-card',
+  selector: 'paises-pais-card',
   templateUrl: './pais-card.component.html',
   styleUrls: ['./pais-card.component.css']
 })
 export class PaisCardComponent {
-
+  @Input() 
+  country!: SmallCountry;
 }
