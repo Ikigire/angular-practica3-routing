@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tarea } from '../models/tarea.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,11 @@ export class TareaService {
     this.tareas.push(tarea);
     this.saveToLocalStorage();
   }
+
+  isTareasEmpty(): Observable<boolean> {
+    return of( this.tareas.length <= 0 );
+  }
+  // isTareasEmpty(): boolean {
+  //   return this.tareas.length <= 0;
+  // }
 }

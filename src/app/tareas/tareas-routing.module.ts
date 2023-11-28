@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MiListaPageComponent } from './pages/mi-lista-page/mi-lista-page.component';
 import { FormularioPageComponent } from './pages/formulario-page/formulario-page.component';
 import { TareasLayoutComponent } from './layout/tareas-layout/tareas-layout.component';
+import { tareasGuardCanActivate, tareasGuardCanMatch } from '../shared/guards/tareas.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,9 @@ const routes: Routes = [
     children: [
       {
         path: 'mi-lista',
-        component: MiListaPageComponent
+        component: MiListaPageComponent,
+        canActivate: [tareasGuardCanActivate],
+        canMatch: [tareasGuardCanMatch]
       },
       {
         path: "nueva-tarea",
@@ -19,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'mi-lista'
+        redirectTo: 'nueva-tarea'
       }
     ]
   }

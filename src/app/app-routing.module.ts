@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { tareasGuardCanActivate, tareasGuardCanMatch } from './shared/guards/tareas.guard';
 
 const routes: Routes = [
     {
@@ -8,7 +9,9 @@ const routes: Routes = [
     },
     {
         path: "paises",
-        loadChildren: () => import('./paises/paises.module').then( m => m.PaisesModule )
+        loadChildren: () => import('./paises/paises.module').then( m => m.PaisesModule ),
+        canActivate: [tareasGuardCanActivate],
+        canMatch: [tareasGuardCanMatch]
     },
     {
         path: '**',
